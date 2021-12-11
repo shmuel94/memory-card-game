@@ -1,0 +1,22 @@
+.card{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.singleCard{
+    width: 100px;
+    height: 150px;
+    margin: auto;
+}
+
+body{
+    background-color: rgba(11, 211, 194, 0.918);
+}
+
+h1{
+    color: rgba(0, 0, 0, 0.931);
+    
+}
