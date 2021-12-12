@@ -30,7 +30,7 @@ export default class MemoryGame extends Component {
         this.setState({arrayOfNums: temp})
     }
 
-    clickHandler =(e,i)=>{
+    cardClickHandler =(e,i)=>{
         if (this.stopGame) {
             return
         }
@@ -68,7 +68,7 @@ export default class MemoryGame extends Component {
         const newArray = arrayOfNums.map((itme, i)=>{
             return(
                 <div key={i}>
-                    <button style={{color:this.state.color, backgroundColor:this.state.backgroundColor}} className="singleCard" onClick={(e)=> this.clickHandler(e,i) } > {itme.number} </button>
+                    <button style={{color:this.state.color, backgroundColor:this.state.backgroundColor}} className="singleCard" onClick={(e)=> this.cardClickHandler(e,i) } > {itme.number} </button>
                 </div>
             )
         })
