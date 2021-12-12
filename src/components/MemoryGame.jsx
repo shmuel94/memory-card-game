@@ -3,7 +3,7 @@ import "./MemoryGame.css"
 
 export default class MemoryGame extends Component {
 
-    state = {counter:0 ,time: null, message:"", arrayOfNums: [] ,first:null, color: "blue",backgroundColor: "blue"}
+    state = {counter:0 ,time: null, message:"", arrayOfNums: [] ,firstClick:null, color: "blue",backgroundColor: "blue"}
     firstTargetDiv
     turns= 0
     stopGame=false
@@ -36,15 +36,15 @@ export default class MemoryGame extends Component {
         }
         console.log(i);
         const temp = [...this.state.arrayOfNums];
-        if (this.state.first == null) {
-            this.setState({first:temp[i].number});
+        if (this.state.firstClick == null) {
+            this.setState({firstClick:temp[i].number});
             e.target.style.backgroundColor="gray";
             this.firstTargetDiv= e.target
         }
         else{
             e.target.style.backgroundColor="gray";
             setTimeout(()=>{
-                if (this.state.first == temp[i].number) {
+                if (this.state.firstClick == temp[i].number) {
                 console.log("same");
                 this.turns = this.turns +1
                 this.rightChoice = this.rightChoice +1
@@ -58,7 +58,7 @@ export default class MemoryGame extends Component {
                 this.firstTargetDiv.style.backgroundColor=this.state.backgroundColor;
                 this.turns = this.turns +1
             }
-            this.setState({first:null});
+            this.setState({firstClick:null});
            }, 800)
         }
     }
