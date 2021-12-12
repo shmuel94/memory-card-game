@@ -11,13 +11,19 @@ export default class MemoryGame extends Component {
     arrayLength = 6
 
     componentDidMount(){
-        this.bord();
+        this.creatBoard();
+        // this.setState({time:setInterval(() => {
+        //     this.setState({counter: this.state.counter+1})
+        // }, 1000)});
+    }
+    
+    startGame = () =>{
         this.setState({time:setInterval(() => {
             this.setState({counter: this.state.counter+1})
         }, 1000)});
     }
 
-    bord = () =>{
+    creatBoard = () =>{
         let temp = [...this.state.arrayOfNums];
         for (let i = 0; i < this.arrayLength/2; i++) {
             temp.push({number: i, clicked:false});
@@ -46,7 +52,7 @@ export default class MemoryGame extends Component {
                 this.turns = this.turns +1
                 this.rightChoice = this.rightChoice +1
                 if(this.rightChoice===this.state.arrayOfNums.length/2){
-                    this.setState({message:"Game Over"})
+                    this.setState({message:"Game Over!"})
                     clearInterval(this.state.time);
                 }
             }else{
@@ -71,7 +77,7 @@ export default class MemoryGame extends Component {
         })
         return (
             <div className="card">
-                {newArray} <br></br> <h3>turns: {this.turns} time: {this.state.counter} sec</h3> <br/> <button style={{backgroundColor:"grey", color:"blue"}} onClick={() => window.location.reload(false)}>start new game</button> <br/> <button style={{backgroundColor:"grey", color:"blue"}} onClick={()=> {clearInterval(this.state.time) ;this.stopGame=true}}> stop the game </button> <br/> <h2> {this.state.message}  </h2>
+                {newArray} <br/> <p>turns: {this.turns} time: {this.state.counter} sec</p> <br/> <button style={{backgroundColor:"grey", color:"blue"}} onClick={() => this.startGame()}>start game</button>  <button style={{backgroundColor:"grey", color:"blue"}} onClick={() => window.location.reload(false)}>new game</button>  <button style={{backgroundColor:"grey", color:"blue"}} onClick={()=> {clearInterval(this.state.time) ;this.stopGame=true}}>stop the game</button> <br/> <h1> {this.state.message} </h1>
             </div>
         )
     }
