@@ -5,12 +5,9 @@ export default class MemoryGame extends Component {
 
     state = {counter:0 ,time: null, message:"", arrayOfNums: [] ,first:null, color: "blue",backgroundColor: "blue"}
     firstTargetDiv
-
     turns= 0
     stopGame=false
-
     rightChoice = null
-
     arrayLength = 6
 
     componentDidMount(){
@@ -18,9 +15,6 @@ export default class MemoryGame extends Component {
         this.setState({time:setInterval(() => {
             this.setState({counter: this.state.counter+1})
         }, 1000)});
-    }
-    componentDidUpdate(){
-        console.log("was rendered");
     }
 
     bord = () =>{
@@ -39,7 +33,6 @@ export default class MemoryGame extends Component {
         }
         console.log(i);
         const temp = [...this.state.arrayOfNums];
-        // this.setState({first:temp[i].number});
         if (this.state.first == null) {
             this.setState({first:temp[i].number});
             e.target.style.backgroundColor="gray";
